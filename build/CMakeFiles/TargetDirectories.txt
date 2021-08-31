@@ -1,0 +1,12 @@
+F:/Code/MocliaParseBot/build/CMakeFiles/MocliaParseBot.dir
+F:/Code/MocliaParseBot/build/CMakeFiles/install/local.dir
+F:/Code/MocliaParseBot/build/CMakeFiles/install.dir
+F:/Code/MocliaParseBot/build/CMakeFiles/edit_cache.dir
+F:/Code/MocliaParseBot/build/CMakeFiles/rebuild_cache.dir
+F:/Code/MocliaParseBot/build/CMakeFiles/list_install_components.dir
+F:/Code/MocliaParseBot/build/mirai-cpp/CMakeFiles/mirai-cpp.dir
+F:/Code/MocliaParseBot/build/mirai-cpp/CMakeFiles/install/local.dir
+F:/Code/MocliaParseBot/build/mirai-cpp/CMakeFiles/install.dir
+F:/Code/MocliaParseBot/build/mirai-cpp/CMakeFiles/edit_cache.dir
+F:/Code/MocliaParseBot/build/mirai-cpp/CMakeFiles/rebuild_cache.dir
+F:/Code/MocliaParseBot/build/mirai-cpp/CMakeFiles/list_install_components.dir
