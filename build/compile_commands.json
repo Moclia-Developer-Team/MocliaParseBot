@@ -1,6 +1,11 @@
 [
 {
   "directory": "F:/Code/MocliaParseBot/build",
+  "command": "E:\\Working\\VISUAL~1\\VC\\Tools\\MSVC\\1430~1.304\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DMIRAICPP_STATICLIB -I..\\include -I..\\mirai-cpp\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /utf-8 -std:c++17 /FoCMakeFiles\\MocliaParseBot.dir\\src\\About.cpp.obj /FdTARGET_COMPILE_PDB /FS -c F:\\Code\\MocliaParseBot\\src\\About.cpp",
+  "file": "F:/Code/MocliaParseBot/src/About.cpp"
+},
+{
+  "directory": "F:/Code/MocliaParseBot/build",
   "command": "E:\\Working\\VISUAL~1\\VC\\Tools\\MSVC\\1430~1.304\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DMIRAICPP_STATICLIB -I..\\include -I..\\mirai-cpp\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 /utf-8 -std:c++17 /FoCMakeFiles\\MocliaParseBot.dir\\src\\Ascii2dParse.cpp.obj /FdTARGET_COMPILE_PDB /FS -c F:\\Code\\MocliaParseBot\\src\\Ascii2dParse.cpp",
   "file": "F:/Code/MocliaParseBot/src/Ascii2dParse.cpp"
 },

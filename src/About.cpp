@@ -55,9 +55,9 @@ string MocliaBotAbout::botInfo(std::string mahVer, std::string mcppVer)
 		+ prog.supportPlatform + "\n"
 		+ "Using [mirai-cpp version " + prog.miraicppVer + "]\n"
 		+ "Connecting [Mirai-API-Http version " + mahVer + "]\n"
-		+ "ÃüÁîÁĞ±í£º\n"
-		+ "¹ØÓÚµã¸è ¡ª¡ª ±¾²å¼ş°ïÖúÁĞ±í\n"
-		+ "µã¸è[¸èÃû] ¡ª¡ª ÔÚÍøÒ×ÔÆÆ½Ì¨½øĞĞµã¸è";
+		+ "å‘½ä»¤åˆ—è¡¨ï¼š\n"
+		+ "å…³äºç‚¹æ­Œ â€”â€” æœ¬æ’ä»¶å¸®åŠ©åˆ—è¡¨\n"
+		+ "ç‚¹æ­Œ[æ­Œå] â€”â€” åœ¨ç½‘æ˜“äº‘å¹³å°è¿›è¡Œç‚¹æ­Œ";
 
 	return out;
 }

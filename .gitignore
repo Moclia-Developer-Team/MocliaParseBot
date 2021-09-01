@@ -1,3 +1,5 @@
 .vs/
+.history/
 out/
+build/
 CMakeSettings.json
