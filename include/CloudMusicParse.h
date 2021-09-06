@@ -40,7 +40,7 @@ class MocliaParseCloudMusic
 {
 public:
 
-	typedef struct music_t
+	struct music_t
 	{
 		std::string name;
 		std::string artist;

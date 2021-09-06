@@ -57,30 +57,42 @@ public:
 	class cloudMusic // 网易云音乐api
 	{
 	public:
-		// 网易云搜索，后面加曲名
+		// 网易云搜索，后面加曲名（post）
 		const std::string search = 
 			"http://music.163.com/api/search/pc";
-		// 网易云音乐地址，后面加音乐id
+		// 网易云音乐地址，后面加音乐id（get）
 		const std::string jump = 
 			"https://music.163.com/#/song?id=";
-		// 网易云音乐第三方播放地址，后面加音乐id
+		// 网易云音乐第三方播放地址，后面加音乐id（get）
 		const std::string play = 
 			"http://music.163.com/song/media/outer/url?id=";
 	};
 	class ascii2d // ascii2d搜图API
 	{
 	public:
-		// ascii2d.net主页，后面跟网页内联地址
+		// ascii2d.net主页，后面跟网页内联地址（get）
 		const std::string home = 
 			"https://ascii2d.net";
-		// ascii2d.net搜索页，后面跟图片url
+		// ascii2d.net搜索页，后面跟图片url（get）
 		const std::string search = 
 			"https://ascii2d.net/search/url/";
-		// ascii2d.net颜色搜索地址，后面跟图片哈希，未使用
+		// ascii2d.net颜色搜索地址，后面跟图片哈希，未使用（get）
 		const std::string color = 
 			"https://ascii2d.net/search/color/";
-		// ascii2d.net特征搜索地址，后面跟图片哈希
+		// ascii2d.net特征搜索地址，后面跟图片哈希（get）
 		const std::string bovw = 
 			"https://ascii2d.net/search/bovw/";
+	};
+	class bilibili
+	{
+	public:
+		// B站视频信息（get）
+		const std::string videoView = 
+			"http://api.bilibili.com/x/web-interface/view";
+		// 万恶的B站短链接地址（get）
+		const std::string b23 = 
+			"https://b23.tv/";
+		const std::string bvideo =
+			"https://www.bilibili.com/video/";
 	};
 };

@@ -5,6 +5,8 @@ project(MocliaParseBot)
 # 设置项目的 C++ 标准
 set(CMAKE_CXX_STANDARD 17)
 
+SET(CMAKE_EXE_LINKER_FLAGS "-static")
+
 # 不要构建 mirai-cpp 自带的 examples
 set(MIRAI_CPP_BUILD_EXAMPLES OFF CACHE BOOL "Build examples" FORCE)
 # 添加子模块 mirai-cpp

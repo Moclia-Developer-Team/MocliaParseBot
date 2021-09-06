@@ -30,12 +30,18 @@
 * todo: 网易云音乐链接解析
 *		b站视频解析
 *		彩色控制台
+*		配置文件生成
+*		新增配置文件
+*		自动保存
+*		配置文件热重载
+*		手动重连
 * ----------------------------------------------------------------------------
 ******************************************************************************/
 #include "MiraiBotAndInclude.h"
 #include "About.h"
 #include "CloudMusicParse.h"
 #include "Ascii2dParse.h"
+#include "BilibiliParse.h"
 
 using namespace std;
 using namespace Cyan;
@@ -43,6 +49,7 @@ using namespace Cyan;
 MocliaParseCloudMusic mpcm;
 MocliaBotAbout mba;
 MocliaParseAscii2d ma2ds;
+MocliaParseBilibili mpb;
 
 MiraiBot bot;
 SessionOptions opts = SessionOptions::FromJsonFile("./config.json");
@@ -228,6 +235,17 @@ int main(int angc, char* angv[])
 					{
 
 					}
+				}
+
+				if (plain.find("BV") == 0 ||
+					plain.find("bv") == 0 ||
+					plain.find("AV") == 0 ||
+					plain.find("av") == 0 ||
+					plain.find("https://www.bilibili.com/")  == 0 ||
+					plain.find("https://b23.tv/") == 0)
+				{
+					MessageChain bmsg = mpb.BiliParse(plain);
+					m.Reply(bmsg);
 				}
 			}
 			catch (const std::exception& ex)

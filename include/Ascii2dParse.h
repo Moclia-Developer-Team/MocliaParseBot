@@ -66,7 +66,7 @@ public:
 		std::string authorUrl;
 	};
 
-	typedef struct a2dPic
+	struct a2dPic
 	{
 		std::string type; // 图片搜索的类型：颜色搜索，特征搜索  
 		std::string searchHash; // 用作搜索的图片哈希值
@@ -77,12 +77,17 @@ public:
 		niconico_t niconico;
 	};
 
-	typedef struct a2dSearch
+	struct a2dSearch
 	{
 		Cyan::MessageChain color;
 		Cyan::MessageChain bovw;
 	};
 
+	/*
+	* @brief 使用Ascii2d将传入的图片进行搜索
+	* @param 图片消息(ImageMessage)
+	* @return 结构体a2dSearch，包含颜色识别结果和特征识别结果两个消息链
+	*/
 	a2dSearch picSearch(Cyan::ImageMessage im);
 
 private:

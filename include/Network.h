@@ -39,6 +39,7 @@
 class MocliaParseNetwork
 {
 public:
-	std::string HttpGet(string url);
-	std::string HttpPost(string url, string body);
+	std::string HttpGet(std::string url);
+	cpr::Response HttpGet(std::string url, std::map<std::string, std::string> sendCookies);
+	std::string HttpPost(std::string url, std::string body);
 };

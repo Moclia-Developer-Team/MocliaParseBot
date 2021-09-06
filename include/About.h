@@ -40,7 +40,7 @@ public:
 	std::string botInfo(std::string mahVer, std::string mcppVer);
 
 private:
-	typedef struct programMessage
+	struct programMessage
 	{
 		std::string complier;
 		std::string complieTime;

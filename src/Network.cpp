@@ -41,12 +41,37 @@ string MocliaParseNetwork::HttpGet(string url)
 {
 	try
 	{
-		Response URLGet = Get(Url{ url });
+		Response URLGet = Get(Url{ url },
+			Header{ {"User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+AppleWebKit/537.36 (KHTML, like Gecko) \
+Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.38"} });
 		return URLGet.text;
 	}
 	catch (const std::exception& ex)
 	{
 		cout << ex.what() << endl;
+		return "";
+	}
+}
+
+Response MocliaParseNetwork::HttpGet(
+	string url, std::map<std::string, std::string> sendCookies)
+{
+	try
+	{
+		Cookies cookie = sendCookies;
+		Response URLGet = Get(Url{ url },
+			Cookies{ cookie },
+			Header{ {"User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+AppleWebKit/537.36 (KHTML, like Gecko) \
+Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.38"}});
+		return URLGet;
+	}
+	catch (const std::exception& ex)
+	{
+		cout << ex.what() << endl;
+		Response err;
+		return err;
 	}
 }
 
@@ -54,11 +79,16 @@ string MocliaParseNetwork::HttpPost(string url, string body)
 {
 	try
 	{
-		Response URLPost = Post(Url{ url }, Body{ body });
+		Response URLPost = Post(Url{ url }, 
+			Body{ body },
+			Header{ {"User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+AppleWebKit/537.36 (KHTML, like Gecko) \
+Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.38"} });
 		return URLPost.text;
 	}
 	catch (const std::exception& ex)
 	{
 		cout << ex.what() << endl;
+		return "";
 	}
 }
