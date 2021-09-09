@@ -32,8 +32,6 @@
 ******************************************************************************/
 #pragma once
 
-#include <nlohmann/json.hpp>
-
 #include "MiraiBotAndInclude.h"
 #include "Network.h"
 

@@ -47,9 +47,12 @@
 #include <map> // 键值对
 #include <string> // 字符串
 #include <vector> // 单向队列
+#include <time.h>
+#include <signal.h>
 
 // 第三方库  
 #include <mirai/mirai.h> // mirai-cpp
+#include <nlohmann/json.hpp>
 
 class MocliaUsingApi // 程序使用的api合集
 {

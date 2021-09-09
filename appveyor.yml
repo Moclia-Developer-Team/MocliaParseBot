@@ -1,0 +1,27 @@
+version: 1.0.{build}
+skip_non_tags: true
+image: 
+- Visual Studio 2019
+- Ubuntu
+configuration: Release
+platform: 
+- x64
+- x86
+- ARM64
+
+for:
+- 
+    matrix:
+        only:
+            - image: Ubuntu
+            - platform: ARM64
+
+    install:
+    - sh: ./scripts/prepareBuildSystem_aarch64.sh
+
+    build_script:
+    - sh: ./scripts/build_aarch64.sh
+
+    artifacts:
+    - path: ./build/aarch64/MocliaParseBot
+      name: MocliaParseBot-aarch64

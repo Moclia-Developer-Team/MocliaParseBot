@@ -5,7 +5,8 @@ project(MocliaParseBot)
 # 设置项目的 C++ 标准
 set(CMAKE_CXX_STANDARD 17)
 
-SET(CMAKE_EXE_LINKER_FLAGS "-static")
+# set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
+#set(CMAKE_CXX_FLAGS "-static ${CMAKE_CXX_FLAGS}")
 
 # 不要构建 mirai-cpp 自带的 examples
 set(MIRAI_CPP_BUILD_EXAMPLES OFF CACHE BOOL "Build examples" FORCE)
@@ -13,7 +14,7 @@ set(MIRAI_CPP_BUILD_EXAMPLES OFF CACHE BOOL "Build examples" FORCE)
 add_subdirectory(mirai-cpp)
 
 find_package(cpr)
-find_package(fmt)
+# find_package(fmt CONFIG REQUIRED)
 find_package(nlohmann_json)
 
 # 源码以 UTF-8 编码保存，使用 MSVC 编译器时需要加编译参数提供支持
@@ -32,10 +33,12 @@ include_directories(include)
 # 链接 mirai-cpp
 target_link_libraries(${PROJECT_NAME} PRIVATE mirai-cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE cpr)
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
+# target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
 target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json nlohmann_json::nlohmann_json)
+
 # 使用 mirai-cpp 静态库
 target_compile_definitions(${PROJECT_NAME} PRIVATE MIRAICPP_STATICLIB)
+target_compile_definitions(${PROJECT_NAME} PRIVATE fmt::fmt_STATICLIB)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     # 链接 pthread
