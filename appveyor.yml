@@ -17,6 +17,7 @@ for:
             - platform: ARM64
 
     install:
+    - sh: sudo chmod 777 ./scripts/prepareBuildSystem_aarch64.sh
     - sh: ./scripts/prepareBuildSystem_aarch64.sh
 
     build_script:
