@@ -8,8 +8,27 @@ platform:
 - x64
 - x86
 - ARM64
+- ARM
 
 for:
+# ubuntu
+- 
+    matrix:
+        only:
+            - image: Ubuntu2004
+              platform: ARM
+
+    install:
+    - sh: sudo chmod 777 ./scripts/prepare-arm-linux.sh
+    - sh: ./scripts/prepare-arm-linux.sh
+
+    build_script:
+    - sh: sudo chmod 777 ./scripts/build-aarch64-linux.sh
+    - sh: ./scripts/build-aarch64-linux.sh
+
+    artifacts:
+    - path: ./build/arm-linux/MocliaParseBot
+      name: MocliaParseBot-arm
 - 
     matrix:
         only:
@@ -17,13 +36,108 @@ for:
               platform: ARM64
 
     install:
-    - sh: sudo chmod 777 ./scripts/prepareBuildSystem_aarch64.sh
-    - sh: ./scripts/prepareBuildSystem_aarch64.sh
+    - sh: sudo chmod 777 ./scripts/prepare-aarch64-linux.sh
+    - sh: ./scripts/prepare-aarch64-linux.sh
 
     build_script:
-    - sh: sudo chmod 777 ./scripts/build_aarch64.sh
-    - sh: ./scripts/build_aarch64.sh
+    - sh: sudo chmod 777 ./scripts/build-aarch64-linux.sh
+    - sh: ./scripts/build-aarch64-linux.sh
 
     artifacts:
-    - path: ./build/aarch64/MocliaParseBot
+    - path: ./build/aarch64-linux/MocliaParseBot
       name: MocliaParseBot-aarch64
+- 
+    matrix:
+        only:
+            - image: Ubuntu2004
+              platform: x64
+
+    install:
+    - sh: sudo chmod 777 ./scripts/prepare-x64-linux.sh
+    - sh: ./scripts/prepare-x64-linux.sh
+
+    build_script:
+    - sh: sudo chmod 777 ./scripts/build-x64-linux.sh
+    - sh: ./scripts/build-x64-linux.sh
+
+    artifacts:
+    - path: ./build/x64-linux/MocliaParseBot
+      name: MocliaParseBot-x64
+- 
+    matrix:
+        only:
+            - image: Ubuntu2004
+              platform: x86
+
+    install:
+    - sh: sudo chmod 777 ./scripts/prepare-x86-linux.sh
+    - sh: ./scripts/prepare-x86-linux.sh
+
+    build_script:
+    - sh: sudo chmod 777 ./scripts/build-x86-linux.sh
+    - sh: ./scripts/build-x86-linux.sh
+
+    artifacts:
+    - path: ./build/x86-linux/MocliaParseBot
+      name: MocliaParseBot-x86
+# visual studio
+- 
+    matrix:
+        only:
+            - image: Visual Studio 2019
+              platform: ARM64
+
+    install:
+    - pwsh: ./scripts/prepare-aarch64-windows.ps1
+
+    build_script:
+    - pwsh: ./scripts/build-aarch64-windows.ps1
+
+    artifacts:
+    - path: ./build/aarch64-windows/MocliaParseBot.exe
+      name: MocliaParseBot-aarch64
+- 
+    matrix:
+        only:
+            - image: Visual Studio 2019
+              platform: ARM
+
+    install:
+    - pwsh: ./scripts/prepare-arm-windows.ps1
+
+    build_script:
+    - pwsh: ./scripts/build-arm-windows.ps1
+
+    artifacts:
+    - path: ./build/arm-windows/MocliaParseBot.exe
+      name: MocliaParseBot-arm
+- 
+    matrix:
+        only:
+            - image: Visual Studio 2019
+              platform: x86
+
+    install:
+    - pwsh: ./scripts/prepare-x86-windows.ps1
+
+    build_script:
+    - pwsh: ./scripts/build-x86-windows.ps1
+
+    artifacts:
+    - path: ./build/x86-windows/MocliaParseBot.exe
+      name: MocliaParseBot-x86
+- 
+    matrix:
+        only:
+            - image: Visual Studio 2019
+              platform: x64
+
+    install:
+    - pwsh: ./scripts/prepare-x64-windows.ps1
+
+    build_script:
+    - pwsh: ./scripts/build-x64-windows.ps1
+
+    artifacts:
+    - path: ./build/x64-windows/MocliaParseBot.exe
+      name: MocliaParseBot-x64

@@ -34,6 +34,7 @@
 *		自动保存
 *		配置文件热重载
 *		手动重连
+*		私聊支持
 * ----------------------------------------------------------------------------
 ******************************************************************************/
 #include "MiraiBotAndInclude.h"
@@ -246,33 +247,8 @@ int main(int angc, char* angv[])
 					}
 					else // 基于消息等待的识图
 					{
-						m.Reply(MessageChain().Plain("请发送待识别的图片"));
-						picSgroup = to_string(m.Sender.Group.GID.ToInt64());
-
-						waitImgSearch[picSgroup]["id"] = picSgroup;
-						waitImgSearch[picSgroup]["timestamp"] = m.Timestamp();
-						waitImgSearch[picSgroup]["searchPic"] = true;
-						cout << waitImgSearch.dump() << endl;
+						return;
 					}
-
-					MocliaParseAscii2d::a2dSearch wash;
-
-					/*while (picSgroup == waitImgSearch[picSgroup]["id"] && 
-						time(NULL) < waitImgSearch[picSgroup]["timestamp"]
-						.get<int64_t>() + 200 &&
-						waitImgSearch[picSgroup]["searchPic"] == true)
-					{
-						imv = m.MessageChain.GetAll<ImageMessage>();
-						cout << m.Timestamp() << endl;
-						if (!imv.empty())
-						{
-							ImageMessage waitImageMsg = imv.at(0);
-							m.Reply(MessageChain().Plain("正在识图中……"));
-							wash = ma2ds.picSearch(waitImageMsg);
-							m.Reply(wash.color);
-							m.Reply(wash.bovw);
-						}
-					}*/
 				}
 
 				if (plain.find("BV") == 0 ||
@@ -284,11 +260,6 @@ int main(int angc, char* angv[])
 				{
 					MessageChain bmsg = mpb.BiliParse(plain);
 					m.Reply(bmsg);
-				}
-
-				if (plain == "测试")
-				{
-					cout << "Hello World" << endl;
 				}
 			}
 			catch (const std::exception& ex)

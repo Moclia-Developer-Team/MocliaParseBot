@@ -5,8 +5,11 @@ project(MocliaParseBot)
 # 设置项目的 C++ 标准
 set(CMAKE_CXX_STANDARD 17)
 
-# set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++")
-#set(CMAKE_CXX_FLAGS "-static ${CMAKE_CXX_FLAGS}")
+# 设置windows下的静态编译
+if(MSVC)
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+endif(MSVC)
 
 # 不要构建 mirai-cpp 自带的 examples
 set(MIRAI_CPP_BUILD_EXAMPLES OFF CACHE BOOL "Build examples" FORCE)
@@ -38,7 +41,10 @@ target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json nlohmann_json::nlohm
 
 # 使用 mirai-cpp 静态库
 target_compile_definitions(${PROJECT_NAME} PRIVATE MIRAICPP_STATICLIB)
-target_compile_definitions(${PROJECT_NAME} PRIVATE fmt::fmt_STATICLIB)
+
+if(MSVC)
+target_compile_definitions(${PROJECT_NAME} PRIVATE _HAS_STD_BYTE=0)
+endif(MSVC)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     # 链接 pthread
