@@ -23,8 +23,8 @@ for:
     - sh: ./scripts/prepare-arm-linux.sh
 
     build_script:
-    - sh: sudo chmod 777 ./scripts/build-aarch64-linux.sh
-    - sh: ./scripts/build-aarch64-linux.sh
+    - sh: sudo chmod 777 ./scripts/build-arm-linux.sh
+    - sh: ./scripts/build-arm-linux.sh
 
     artifacts:
     - path: ./build/arm-linux/MocliaParseBot
